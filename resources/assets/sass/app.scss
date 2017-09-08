@@ -1,0 +1,28 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Bulma
+@import '../../../node_modules/bulma/bulma';
+$content-bg : #eee;
+$navbar-height: 52px;
+.content {
+  background: $content-bg;
+  min-height: calc( 100vh - #{$navbar-height} );
+  .modal-view {
+    padding:10vh 0;
+    .panel-heading {
+      margin-bottom:unset !important;
+      padding-bottom: 0.5em;
+      padding-top: 0.5em;
+    }
+    .panel-block {
+      padding:5em;
+    }
+  }
+  .age_restriction_false {
+    p {
+      width:100%;
+    }
+  }
+}
