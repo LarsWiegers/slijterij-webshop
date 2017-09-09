@@ -5596,7 +5596,7 @@ label.panel-block {
 
 .content {
   background: #eee;
-  min-height: calc( 100vh - 52px ); }
+  min-height: calc(100vh - 52px); }
   .content .modal-view {
     padding: 10vh 0; }
     .content .modal-view .panel-heading {
@@ -5629,5 +5629,43 @@ label.panel-block {
           padding: 0 15px; }
       .content .featured-products .grid-container .product:last-child {
         grid-column: 2 / 3; }
+
+.shopping-cart-container .navbar-dropdown {
+  left: unset;
+  right: 0;
+  min-width: 20vw; }
+  .shopping-cart-container .navbar-dropdown .navbar-item {
+    display: flex;
+    flex-direction: row;
+    padding-right: 0; }
+    .shopping-cart-container .navbar-dropdown .navbar-item .img-container {
+      flex: 0 0 20%; }
+      .shopping-cart-container .navbar-dropdown .navbar-item .img-container img {
+        max-width: 25px;
+        min-width: 25px;
+        max-height: 25px;
+        min-height: 25px; }
+    .shopping-cart-container .navbar-dropdown .navbar-item .text {
+      flex: 0 0 50%; }
+    .shopping-cart-container .navbar-dropdown .navbar-item .button-container {
+      flex: 0 0 30%;
+      margin-right: 5rem;
+      text-align: right;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      padding-right: 1em; }
+      .shopping-cart-container .navbar-dropdown .navbar-item .button-container button {
+        border: none;
+        background: none;
+        outline: none;
+        cursor: pointer; }
+        .shopping-cart-container .navbar-dropdown .navbar-item .button-container button:active, .shopping-cart-container .navbar-dropdown .navbar-item .button-container button::-moz-focus-inner {
+          border: none;
+          background: none;
+          outline: none; }
+  .shopping-cart-container .navbar-dropdown .buttons {
+    margin-left: 0;
+    margin-right: 0; }
 
 /*# sourceMappingURL=app.css.map */

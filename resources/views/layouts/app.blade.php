@@ -32,6 +32,47 @@
                 More
             </a>
         </div>
+        <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable shopping-cart-container">
+                <div class="navbar-link  is-active">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                </div>
+                <div class="navbar-dropdown">
+                    {!! Form::open(['url' => 'foo/bar']) !!}
+                    @foreach($shoppingCartItems as $item)
+                        <a class="navbar-item" href="/documentation/overview/start/">
+                            <div class="img-container">
+                                @if(count( $item->productImages ) > 0)
+                                    <img src="{{asset( $item->productImages[0]->location )}}"
+                                         alt="{{asset( $item->productImages[0]->alt )}}">
+                                @else
+                                    <img src="{{asset( "productimages/default.png")}}"
+                                         alt="Default product image1">
+                                @endif
+                            </div>
+                            <div class="text">
+                                {{$item->name}}
+                            </div>
+                            <div class="button-container">
+                                <button type="submit" value="Submit"><i class="fa fa-times" aria-hidden="true"></i>
+                                </button>
+                            </div>
+
+                        </a>
+                    @endforeach
+                    {!! Form::close() !!}
+                    <hr class="navbar-divider">
+                    <div class="columns buttons">
+                        <div class="column">
+                            <a class="button is-primary" href="{{route("order_checkout")}}">Bestellen</a>
+                        </div>
+                        <div class="column has-text-right">
+                            <a class="button is-primary" href="{{route("order_checkout")}}">Leegmaken</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </nav>
     <div class="content">
         @yield('content')
