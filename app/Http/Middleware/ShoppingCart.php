@@ -18,12 +18,16 @@ class ShoppingCart
     public function handle($request, Closure $next)
     {
 	    $featuredProducts = Product::get()->take(10);
+	    $totalPriceCartItems = 0;
 	    foreach($featuredProducts as $product) {
 		    $product->productImage = $product->getProductImages();
+
+		    $totalPriceCartItems += $product->price;
 	    }
 	    $CountShoppinCartItems = count($featuredProducts);
     	View::share("shoppingCartItems",$featuredProducts);
     	View::share("CountShoppinCartItems",$CountShoppinCartItems);
+    	View::share("totalPriceCartItems",$totalPriceCartItems);
         return $next($request);
     }
 }

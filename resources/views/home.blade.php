@@ -7,7 +7,7 @@
                 <div class="product">
                     <img src="{{asset($product->productImage[0]->location)}}" alt="{{$product->productImage[0]->alt}}">
                     <p class="name">{{$product->name}}</p>
-                    <p class="price">€ {{$product->price}}</p>
+                    <p class="price">{{env("CURRENCY_ICON")}} {{$product->price}}</p>
                 </div>
             @endforeach
         </div>
