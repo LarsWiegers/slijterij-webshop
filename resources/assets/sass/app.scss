@@ -125,6 +125,29 @@ $navbar-height: 52px;
         list-style: none;
       }
     }
+    h2.menu-label {
+      font-size:1em;
+    }
+    #slider-range {
+      margin-top:0.5em;
+    }
+    input{
+      width:100%;
+    }
+    label.menu-label {
+      margin-bottom:1em;
+    }
+    .category-item {
+      display:flex;
+      justify-content: center;
+      align-items:center;
+      label {
+        flex: 0 0 90%;
+      }
+      input{
+        flex: 0 0 10%;
+      }
+    }
   }
   .product {
     .name {
@@ -169,6 +192,12 @@ $navbar-height: 52px;
       margin:0 auto;
     }
   }
+  .sorry-message {
+    min-height:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 .home {
   .slider-container {
@@ -203,4 +232,5 @@ $navbar-height: 52px;
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 );
     }
   }
+
 }

@@ -5689,6 +5689,22 @@ label.panel-block {
         margin-left: 0; }
       .content .sidebar .menu ul {
         list-style: none; }
+    .content .sidebar h2.menu-label {
+      font-size: 1em; }
+    .content .sidebar #slider-range {
+      margin-top: 0.5em; }
+    .content .sidebar input {
+      width: 100%; }
+    .content .sidebar label.menu-label {
+      margin-bottom: 1em; }
+    .content .sidebar .category-item {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .content .sidebar .category-item label {
+        flex: 0 0 90%; }
+      .content .sidebar .category-item input {
+        flex: 0 0 10%; }
   .content .product .name {
     color: #6f6f6f;
     margin-bottom: 0;
@@ -5718,6 +5734,11 @@ label.panel-block {
   .content .product .description-container {
     max-width: 60vw;
     margin: 0 auto; }
+  .content .sorry-message {
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
 
 .home .slider-container {
   min-height: 40vh; }

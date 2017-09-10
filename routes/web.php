@@ -13,5 +13,9 @@ Route::get("/remove_all_checkout_items/{returnUrl?}","CartController@removeAll")
 Route::POST("/remove_one_item/{productId}/{returnUrl?}","CartController@removeOne")->name("remove_an_item");
 
 Route::get("/order_checkout","OrderCheckout@index")->name("order_checkout");
-Route::get("/categories","CategoriesController@index")->name("categories_home");
+
+Route::group( [ 'prefix' => 'categories' ], function () {
+	Route::get("/","CategoriesController@index")->name("categories_home");
+	Route::POST("/","CategoriesController@filter")->name("set_category_criteria");
+});
 Route::get("/product","ProductController@index")->name("product_home");
