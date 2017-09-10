@@ -67,7 +67,9 @@
                         @endforeach
                         {!! Form::close() !!}
                         <hr class="navbar-divider">
-                        Sub totaal : {{env("CURRENCY_ICON")}} {{$totalPriceCartItems}}
+                        <div class="column has-text-centered">
+                            <h3 class="price">Sub totaal : {{env("CURRENCY_ICON")}} {{$totalPriceCartItems}}</h3>
+                        </div>
                     @endif
 
                     <hr class="navbar-divider">
