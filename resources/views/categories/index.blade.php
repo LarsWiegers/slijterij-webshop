@@ -68,12 +68,20 @@
                 <div class="featured-products">
                     <div class="grid-container">
                         @foreach($products as $product)
-                            <div class="product">
-                                <img src="{{asset($product->productImage[0]->location)}}"
-                                     alt="{{$product->productImage[0]->alt}}">
-                                <p class="name">{{$product->name}}</p>
-                                <p class="price">{{env("CURRENCY_ICON")}} {{$product->price}}</p>
-                            </div>
+                            @component("components.featuredProduct")
+                                @slot("image")
+                                    {{$product->productImage[0]->location}}
+                                @endslot
+                                @slot("alt")
+                                    {{$product->productImage[0]->alt}}
+                                @endslot
+                                @slot("name")
+                                    {{$product->name}}
+                                @endslot
+                                @slot("price")
+                                    {{$product->price}}
+                                @endslot
+                            @endcomponent
                         @endforeach
                     </div>
                 </div>
