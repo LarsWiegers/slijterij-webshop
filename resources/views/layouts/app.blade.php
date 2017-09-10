@@ -42,7 +42,9 @@
                 <div class="navbar-dropdown">
 
                     @if(count($shoppingCartItems) <= 0)
-                        U heeft nog geen producten toegevoegd in uw winkelwagen
+                        <div class="column has-text-centered">
+                            U heeft nog geen producten toegevoegd in uw winkelwagen
+                        </div>
                     @else
                         {!! Form::open(['url' => 'foo/bar']) !!}
                         @foreach($shoppingCartItems as $item)
@@ -78,7 +80,7 @@
                             <a class="button is-primary" href="{{route("order_checkout")}}">Bestellen</a>
                         </div>
                         <div class="column has-text-right">
-                            <a class="button is-primary" href="{{route("order_checkout")}}">Leegmaken</a>
+                            <a class="button is-primary" href="{{route("remove_all_checkout_items",["returnUrl" => Request::path()])}}">Leegmaken</a>
                         </div>
                     </div>
                 </div>

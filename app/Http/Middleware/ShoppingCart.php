@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use App\Product;
 use Closure;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\View;
 
 class ShoppingCart
@@ -17,15 +18,16 @@ class ShoppingCart
      */
     public function handle($request, Closure $next)
     {
-	    $featuredProducts = Product::get()->take(10);
-	    $totalPriceCartItems = 0;
-	    foreach($featuredProducts as $product) {
-		    $product->productImage = $product->getProductImages();
-
-		    $totalPriceCartItems += $product->price;
+    	$cartItems = session("cartItems");
+    	if(!isset( $cartItems ) ) {
+			$cartItems = new Collection();
 	    }
-	    $CountShoppinCartItems = count($featuredProducts);
-    	View::share("shoppingCartItems",$featuredProducts);
+	    $CountShoppinCartItems = count( $cartItems );
+	    $totalPriceCartItems = 0;
+	    foreach($cartItems as $item) {
+	    	$totalPriceCartItems += $item->price;
+    }
+    	View::share("shoppingCartItems",$cartItems);
     	View::share("CountShoppinCartItems",$CountShoppinCartItems);
     	View::share("totalPriceCartItems",$totalPriceCartItems);
         return $next($request);
