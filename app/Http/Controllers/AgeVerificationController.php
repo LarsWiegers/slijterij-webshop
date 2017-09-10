@@ -19,11 +19,11 @@ class AgeVerificationController extends Controller
 	public function validation($boolean) {
 		switch($boolean) {
 			case 'yes':
-				session(["age_verification", true]);
+				session(["age_verification" => true]);
 				return redirect()->route("home");
 				break;
 			case 'no':
-				session(["age_verification", false]);
+				session(["age_verification" => false]);
 				return redirect()->route("age_restriction_result_false");
 				break;
 			default:
