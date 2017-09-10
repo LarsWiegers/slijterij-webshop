@@ -19,3 +19,5 @@ Route::group( [ 'prefix' => 'categories' ], function () {
 	Route::POST("/","CategoriesController@filter")->name("set_category_criteria");
 });
 Route::get("/product","ProductController@index")->name("product_home");
+
+Route::get("/profile","ProfileController@index")->name("profile");

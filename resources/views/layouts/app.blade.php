@@ -35,7 +35,7 @@
         </div>
         <div class="navbar-end">
             <div class="navbar-item has-dropdown is-hoverable shopping-cart-container">
-                <div class="navbar-link  is-active">
+                <div class="navbar-link">
                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     <span class="count">{{$CountShoppinCartItems}}</span>
                 </div>
@@ -85,7 +85,29 @@
                         </div>
                     </div>
                 </div>
+
             </div>
+            @guest
+                <a href="{{route("login")}}" class="navbar-item">
+                    Login
+                </a>
+                <a href="{{route("register")}}" class="navbar-item">
+                    Registreer
+                </a>
+            @endguest
+            @auth
+                <div class="navbar-item has-dropdown is-hoverable shopping-cart-container">
+                    <div class="navbar-link">
+                        {{Auth::user()->name}}
+                    </div>
+                    <div class="navbar-dropdown">
+                        <a href="{{route("profile")}}">Profile</a>
+                        @isAdmin
+                            Hallo admin
+                        @endisAdmin
+                    </div>
+                </div>
+            @endauth
         </div>
     </nav>
     <div class="content">
