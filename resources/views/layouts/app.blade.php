@@ -101,9 +101,10 @@
                         {{Auth::user()->name}}
                     </div>
                     <div class="navbar-dropdown">
-                        <a href="{{route("profile")}}">Profile</a>
+                        <a href="{{route("profile")}}" class="navbar-item">Profile</a>
                         @isAdmin
-                            Hallo admin
+                        <hr class="navbar-divider">
+                           <a href="{{route("admin_home")}}" class="navbar-item">Dashboard</a>
                         @endisAdmin
                     </div>
                 </div>

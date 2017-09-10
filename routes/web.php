@@ -3,6 +3,8 @@ Route::get('/', "HomeController@index");
 
 Auth::routes();
 
+Route::get("/not_allowed","NotAllowedController@index")->name("not_allowed");
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/age_verification', 'AgeVerificationController@index')->name('age_verification');
 Route::get('/age_verification/{boolean}', 'AgeVerificationController@validation')->name('age_verification_result');
@@ -21,3 +23,7 @@ Route::group( [ 'prefix' => 'categories' ], function () {
 Route::get("/product","ProductController@index")->name("product_home");
 
 Route::get("/profile","ProfileController@index")->name("profile");
+
+Route::group(["prefix" => "admin","middleware" => ["auth","admin"]],function(){
+	Route::get("/","AdminController@index")->name("admin_home");
+});

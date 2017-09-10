@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
         //
 	    Schema::defaultStringLength(191);
 	    Blade::if('isAdmin', function () {
-		    return (new User())::find(Auth::id())->isAdmin();
+		    return (new User())->find(Auth::id())->isAdmin();
 	    });
     }
 
