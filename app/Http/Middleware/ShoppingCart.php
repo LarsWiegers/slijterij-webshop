@@ -21,7 +21,9 @@ class ShoppingCart
 	    foreach($featuredProducts as $product) {
 		    $product->productImage = $product->getProductImages();
 	    }
+	    $CountShoppinCartItems = count($featuredProducts);
     	View::share("shoppingCartItems",$featuredProducts);
+    	View::share("CountShoppinCartItems",$CountShoppinCartItems);
         return $next($request);
     }
 }

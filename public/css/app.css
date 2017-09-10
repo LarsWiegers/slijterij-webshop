@@ -5594,6 +5594,26 @@ label.panel-block {
   background-color: whitesmoke;
   padding: 3rem 1.5rem 6rem; }
 
+.shopping-cart-container .count {
+  position: relative;
+  top: 6px;
+  left: -3px;
+  z-index: 3;
+  color: white;
+  font-size: 0.9em; }
+  .shopping-cart-container .count:before {
+    display: block;
+    content: '';
+    width: 25px;
+    height: 25px;
+    background-color: #00d1b2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    border-radius: 50%;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); }
 .shopping-cart-container .navbar-dropdown {
   left: unset;
   right: 0;
