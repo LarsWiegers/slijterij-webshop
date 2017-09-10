@@ -72,7 +72,6 @@ $navbar-height: 52px;
       width: 100%;
     }
   }
-
   .featured-products {
     max-width: 66vw;
     margin: 0 auto;
@@ -86,15 +85,6 @@ $navbar-height: 52px;
       padding: 30px;
       .product {
         background-color: white;
-        .name {
-          color: darken($content-bg, 50);
-          margin-bottom: 0;
-          padding: 0 15px;
-        }
-        .price {
-          color: darken($content-bg, 70);
-          padding: 0 15px;
-        }
       }
       .product:last-child {
         grid-column: 2 / 3;
@@ -112,6 +102,49 @@ $navbar-height: 52px;
       ul {
         list-style: none;
       }
+    }
+  }
+  .product {
+    .name {
+      color: darken($content-bg, 50);
+      margin-bottom: 0;
+      padding: 0 15px;
+    }
+    .price {
+      color: darken($content-bg, 70);
+      padding: 0 15px;
+    }
+    .top-view {
+      min-height: 60vh;
+      max-height: 60vh;
+      + .section-devider{
+        margin: 20% 0 5% 0;
+      }
+    }
+    .slider-container {
+      max-width:50vw;
+      ul {
+        margin-left:0;
+      }
+      .item {
+        padding: 4%;
+      }
+    }
+    .info-container {
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height:100%;
+      }
+    }
+    .section-devider {
+      margin: 10% 0 10% 0;
+    }
+    .description-container {
+      max-width:60vw;
+      margin:0 auto;
     }
   }
 }
