@@ -29,8 +29,8 @@
             </div>
         </div>
         <div class="navbar-start">
-            <a href="#" class="navbar-item">
-                More
+            <a href="{{route("categories_home")}}" class="navbar-item">
+                Producten
             </a>
         </div>
         <div class="navbar-end">
