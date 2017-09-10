@@ -46,8 +46,9 @@
                             U heeft nog geen producten toegevoegd in uw winkelwagen
                         </div>
                     @else
-                        {!! Form::open(['url' => 'foo/bar']) !!}
+
                         @foreach($shoppingCartItems as $item)
+                            {!! Form::open(['url' => route("remove_an_item",["productId" => $item->id,"returnUrl" => Request::path()])]) !!}
                             <a class="navbar-item" href="/documentation/overview/start/">
                                 <div class="img-container">
                                     @if(count( $item->productImages ) > 0)
@@ -66,8 +67,8 @@
                                     </button>
                                 </div>
                             </a>
+                            {!! Form::close() !!}
                         @endforeach
-                        {!! Form::close() !!}
                         <hr class="navbar-divider">
                         <div class="column has-text-centered">
                             <h3 class="price">Sub totaal : {{env("CURRENCY_ICON")}} {{$totalPriceCartItems}}</h3>
