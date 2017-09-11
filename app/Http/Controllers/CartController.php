@@ -9,9 +9,7 @@ use Illuminate\Http\Request;
 class CartController extends Controller {
 	//
 	public function addToCart( Request $request, $productId, $returnUrl = null ) {
-
-		session([ 'cartItems', ( new Product() )->find( $productId )] );
-
+		session()->push('cartItems',( new Product() )->find( $productId ) );
 		return $this->returnRedirectBack( $returnUrl );
 
 	}
