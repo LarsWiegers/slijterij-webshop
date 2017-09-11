@@ -36,7 +36,7 @@ class CategoriesController extends Controller
 		}
 
 		$price = Input::get('price');
-		$price = str_replace("$","",$price);
+		$price = str_replace(env("CURRENCY_ICON"),"",$price);
 		$price = str_replace(" -","",$price);
 		$price = explode(" ",$price);
 		$chosenLowestPrice = $price[0];
@@ -48,7 +48,6 @@ class CategoriesController extends Controller
 		$quantity = explode(" ",$quantity);
 		$chosenLowestQuantity = $quantity[0];
 		$chosenHighestQuantity = $quantity[1];
-
 		$productsIds = DB::table('products')
 		    ->whereBetween('price', [$chosenLowestPrice, $chosenHighestPrice])
 		    ->whereBetween('quantity',[$chosenLowestQuantity, $chosenHighestQuantity])
@@ -61,7 +60,6 @@ class CategoriesController extends Controller
 
 			$products->push($product);
 		}
-
 		return view("categories.index",[
 			"products" => $products,
 			"allCategories" => Category::all(),
