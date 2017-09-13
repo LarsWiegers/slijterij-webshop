@@ -13,7 +13,7 @@
     <!-- Styles -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     @stack("head")
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
 </head>
 <body>
 <div id="app">
@@ -29,9 +29,15 @@
             </div>
         </div>
         <div class="navbar-start">
-            <a href="{{route("categories_home")}}" class="navbar-item">
-                Producten
-            </a>
+            <div  class="navbar-item has-dropdown is-hoverable">
+                <a href="{{route("categories_home")}}" class="navbar-link"> Producten</a>
+
+                <div class="navbar-dropdown">
+                    <a href="{{route("admin_products_home")}}" class="navbar-item">Overzicht</a>
+                    <a href="{{route("admin_products_add")}}" class="navbar-item">Toevoegen</a>
+                </div>
+            </div>
+
         </div>
         <div class="navbar-end">
             <div class="navbar-item has-dropdown is-hoverable shopping-cart-container">

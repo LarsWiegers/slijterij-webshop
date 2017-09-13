@@ -55,12 +55,12 @@
                 <div class="column">
                     <div id="quantity-slider"></div>
                 </div>
-                <button type="submit" valu="submit" class="button">Filter</button>
+                <button type="submit" value="submit" class="button">Filter</button>
                 {!! Form::close() !!}
             </aside>
         </div>
         <div class="column">
-            @if(count($products) <= 0)
+            @if(count($products) == 0)
                 <div class="column has-text-centered sorry-message">
                     <h2>Sorry , we konden geen producten vinden met de filters die u aan heeft staan.</h2>
                 </div>
@@ -108,11 +108,11 @@
                 @endif
 
                 slide: function (event, ui) {
-                    $("#price").val("$" + ui.values[0] + " - $" + ui.values[1]);
+                    $("#price").val('{{env("CURRENCY_ICON")}}' + ui.values[0] + " - " + '{{env("CURRENCY_ICON")}}' + ui.values[1]);
                 }
             });
-            $("#price").val("$" + $("#slider-range").slider("values", 0) +
-                " - $" + $("#slider-range").slider("values", 1));
+            $("#price").val('{{env("CURRENCY_ICON")}}' + $("#slider-range").slider("values", 0) +
+                " - "+ '{{env("CURRENCY_ICON")}}' + $("#slider-range").slider("values", 1));
             $("#quantity-slider").slider({
                 range: true,
                 min: {{$lowestQuantity}},
