@@ -31,3 +31,4 @@ Route::group(["prefix" => "admin","middleware" => ["auth","admin"]],function(){
 	Route::POST("/products/make/","Admin\ProductController@make")->name("admin_products_make");
 	Route::get("/products/edit/{id}","Admin\ProductController@edit")->name("admin_products_edit");
 });
+Route::get("/product/{productname}","ProductController@searchProduct")->name("product_single");

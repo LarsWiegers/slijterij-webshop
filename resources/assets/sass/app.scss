@@ -168,11 +168,16 @@ $navbar-height: 52px;
     }
     .slider-container {
       max-width:50vw;
+
       ul {
         margin-left:0;
       }
       .item {
-        padding: 4%;
+        padding: 7vw 11vw 2vw;
+        img {
+          max-width:100%;
+          width:100%;
+        }
       }
     }
     .info-container {

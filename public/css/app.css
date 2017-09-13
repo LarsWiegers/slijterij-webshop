@@ -5722,7 +5722,10 @@ label.panel-block {
     .content .product .slider-container ul {
       margin-left: 0; }
     .content .product .slider-container .item {
-      padding: 4%; }
+      padding: 7vw 11vw 2vw; }
+      .content .product .slider-container .item img {
+        max-width: 100%;
+        width: 100%; }
   .content .product .info-container form {
     display: flex;
     flex-direction: column;
