@@ -98,7 +98,7 @@
             @auth
                 <div class="navbar-item has-dropdown is-hoverable shopping-cart-container">
                     <div class="navbar-link">
-                        {{Auth::user()->name}}
+                        {{Auth::user()->first_name}} {{Auth::user()->last_name}}
                     </div>
                     <div class="navbar-dropdown">
                         <a href="{{route("profile")}}" class="navbar-item">Profile</a>
