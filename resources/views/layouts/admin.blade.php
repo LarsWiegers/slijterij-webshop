@@ -42,7 +42,7 @@
         <div class="navbar-end">
             <div class="navbar-item has-dropdown is-hoverable shopping-cart-container">
                 <div class="navbar-link">
-                    {{Auth::user()->name}}
+                    {{Auth::user()->first_name}} {{Auth::user()->last_name}}
                 </div>
                 <div class="navbar-dropdown">
                     <a href="{{route("profile")}}" class="navbar-item">Profile</a>
@@ -50,6 +50,15 @@
                     <hr class="navbar-divider">
                     <a href="{{route("admin_home")}}" class="navbar-item">Dashboard</a>
                     @endisAdmin
+                    <a href="{{ route('logout') }}" class="navbar-item"
+                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
                 </div>
             </div>
         </div>
