@@ -40,6 +40,7 @@ class Kernel extends HttpKernel
 
 	        \App\Http\Middleware\AgeRestriction::class,
 	        \App\Http\Middleware\ShoppingCart::class,
+	        \App\Http\Middleware\infoBar::class,
 
 
 

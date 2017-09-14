@@ -17,6 +17,16 @@
 </head>
 <body>
 <div id="app">
+    @if(isset($message))
+        @component("components.infoBar")
+            @slot("message")
+                {{$message}}
+            @endslot
+            @slot("status")
+                {{$status}}
+            @endslot
+        @endcomponent
+    @endif
     <nav class="navbar">
         <div class="navbar-brand">
             <a class="navbar-item" href="/">

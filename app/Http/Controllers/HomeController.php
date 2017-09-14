@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use Illuminate\Support\Facades\Input;
 
 class HomeController extends Controller
 {
@@ -13,8 +14,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-
         return view('home',["featuredProducts" => $this->getFeaturedProducts()]);
     }
     private function getFeaturedProducts(){

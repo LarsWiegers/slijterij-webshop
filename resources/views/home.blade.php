@@ -62,13 +62,13 @@
     @endcomponent
 @endsection
 @push("head")
-    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="/slick/slick-theme.css"/>
 @endpush
 @push("footer")
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script type="text/javascript" src="/slick/slick.min.js"></script>
     <script>
         $(document).ready(function () {
             $('.slider-container').slick({
@@ -83,6 +83,10 @@
                 arrows: false,
                 cssEase: 'linear'
             });
+            $(".close-icon").on("click",function() {
+                $(".info_bar").addClass("close");
+            });
         });
     </script>
+
 @endpush

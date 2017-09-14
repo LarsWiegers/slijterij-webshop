@@ -5594,6 +5594,9 @@ label.panel-block {
   background-color: whitesmoke;
   padding: 3rem 1.5rem 6rem; }
 
+p.error {
+  color: black; }
+
 .shopping-cart-container .count {
   position: relative;
   top: 6px;
@@ -5784,5 +5787,40 @@ label.panel-block {
     padding: 1.2em; }
   .sign_up_bar button {
     height: 46px; }
+
+.info_bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translateY(-100%);
+  animation: info_bar_animation 350ms ease-in-out forwards;
+  transition: transform 350ms ease-in-out;
+  z-index: 100;
+  color: rgba(255, 255, 255, 0.7); }
+  .info_bar .container {
+    min-height: 52px;
+    position: relative; }
+    .info_bar .container p {
+      margin-bottom: 0; }
+    .info_bar .container i.close-icon {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2em;
+      cursor: pointer; }
+  .info_bar.close {
+    animation: info_bar_animation 350ms ease-in-out backwards; }
+  .info_bar.success {
+    background-color: green; }
+  .info_bar.failure {
+    background-color: red; }
+
+@keyframes info_bar_animation {
+  0% {
+    transform: translateY(-100%); }
+  100% {
+    transform: translateY(0%); } }
 
 /*# sourceMappingURL=app.css.map */

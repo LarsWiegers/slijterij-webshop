@@ -7,20 +7,31 @@
     <div class="columns">
         <div class="column">
             <span class="for-layout">
-                <label for="naam">Uw naam: </label>
+                <label for="first_name">Uw voornaam: </label>
+
             </span>
-            <input value="{{isset(Auth::user()->first_name) ? Auth::user()->first_name : '' }}" id="naam">
+            <input value="{{isset(Auth::user()->first_name) ? Auth::user()->first_name : '' }}" id="first_name" required name="first_name">
+            @if($errors->has("first_name"))
+                <p class="error">{{$errors->first("first_name")}}</p>
+            @endif
         </div>
         <div class="column">
             <span class="for-layout">
-                <label for="achternaam">Uw achternaam: </label>
+                <label for="last_name">Uw achternaam: </label>
+
             </span>
-            <input value="{{isset(Auth::user()->last_name) ? Auth::user()->last_name : '' }}" id="achternaam">
+            <input value="{{isset(Auth::user()->last_name) ? Auth::user()->last_name : '' }}" id="last_name" required name="last_name">
+            @if($errors->has("last_name"))
+                <p class="error">{{$errors->first("last_name")}}</p>
+            @endif
         </div>
         <div class="column">
             <span class="for-layout">
                 <label for="email">Uw email adress: </label>
-            </span><input value="{{isset(Auth::user()->email) ? Auth::user()->email : '' }}" id="email">
+            </span><input value="{{isset(Auth::user()->email) ? Auth::user()->email : '' }}" id="email" required name="email">
+            @if($errors->has("email"))
+                <p class="error">{{$errors->first("email")}}</p>
+            @endif
         </div>
         <div class="column is-one-third">
             <span class="for-layout">
@@ -29,5 +40,4 @@
             <button type="submit" value="Submit" class="button">Subscribe</button>
         </div>
     </div>
-    {!! Form::close() !!}
 </section>

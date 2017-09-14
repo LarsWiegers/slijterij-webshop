@@ -5,6 +5,10 @@
 
 $content-bg: #eee;
 $navbar-height: 52px;
+$is-danger : #ff3860;
+p.error {
+  color: black;
+}
 .shopping-cart-container {
   .count {
     position: relative;
@@ -257,5 +261,48 @@ $navbar-height: 52px;
   }
   button {
     height: 46px;
+  }
+}
+.info_bar {
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  transform: translateY(-100%);
+  animation: info_bar_animation 350ms ease-in-out forwards;
+  transition: transform 350ms ease-in-out;
+  z-index:100;
+  color:rgba(255,255,255,0.7);
+  .container {
+    min-height:$navbar-height;
+    position: relative;
+    p {
+      margin-bottom:0;
+    }
+    i.close-icon {
+      position: absolute;
+      right:5%;
+      top:50%;
+      transform: translateY(-50%);
+      font-size:2em;
+      cursor:pointer;
+    }
+  }
+  &.close {
+    animation: info_bar_animation 350ms ease-in-out backwards;
+  }
+  &.success {
+    background-color:green;
+  }
+  &.failure {
+    background-color:red;
+  }
+}
+@keyframes info_bar_animation {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
   }
 }
