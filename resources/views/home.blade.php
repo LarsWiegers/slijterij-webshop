@@ -58,6 +58,8 @@
             </div>
         </div>
     </div>
+    @component("components.signUpNewsLetterBar")
+    @endcomponent
 @endsection
 @push("head")
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>

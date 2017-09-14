@@ -35,3 +35,5 @@ Route::get("/product/{productname}","ProductController@searchProduct")->name("pr
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::POST("/sign_up","sigUpController@index")->name("signUp_ur");
