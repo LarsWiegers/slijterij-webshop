@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container age_verification modal-view">
+    <div class="container modal-view">
         <nav class="panel">
             <p class="panel-heading">
                 Registreer
