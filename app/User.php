@@ -36,6 +36,14 @@ class User extends Authenticatable {
 		'remember_token',
 	];
 
+	/**
+	 *
+	 * Checks if the current user is an admin and
+	 *
+	 * @param       none
+	 * @return      Boolean
+	 *
+	 */
 	public function isAdmin() {
 		foreach ( Role::all() as $role ) {
 			if ( $role->name == "Admin" && $role->id == $this->role_id ) {
