@@ -30,13 +30,22 @@
         </div>
         <div class="navbar-start">
             <div  class="navbar-item has-dropdown is-hoverable">
-                <a href="{{route("categories_home")}}" class="navbar-link"> Producten</a>
+                <a href="{{route("admin_products_home")}}" class="navbar-link"> Producten</a>
 
                 <div class="navbar-dropdown">
                     <a href="{{route("admin_products_home")}}" class="navbar-item">Overzicht</a>
                     <a href="{{route("admin_products_add")}}" class="navbar-item">Toevoegen</a>
                 </div>
             </div>
+            <div  class="navbar-item has-dropdown is-hoverable">
+                <a href="{{route("admin_categories_home")}}" class="navbar-link"> Categories</a>
+
+                <div class="navbar-dropdown">
+                    <a href="{{route("admin_categories_home")}}" class="navbar-item">Overzicht</a>
+                    <a href="{{route("admin_categories_add")}}" class="navbar-item">Toevoegen</a>
+                </div>
+            </div>
+
 
         </div>
         <div class="navbar-end">

@@ -16,7 +16,7 @@ Route::POST("/remove_one_item/{productId}","CartController@removeOne")->name("re
 
 Route::get("/order_checkout","OrderCheckoutController@index")->name("order_checkout");
 
-Route::group( [ 'prefix' => 'categories' ], function () {
+Route::group( [ 'prefix' => 'category' ], function () {
 	Route::get("/","CategoriesController@index")->name("categories_home");
 	Route::POST("/","CategoriesController@filter")->name("set_category_criteria");
 });
@@ -26,11 +26,22 @@ Route::get("/profile","ProfileController@index")->name("profile");
 
 Route::group(["prefix" => "admin","middleware" => ["auth","admin"]],function(){
 	Route::get("/","Admin\AdminController@index")->name("admin_home");
-	Route::get("/products/","Admin\ProductController@index")->name("admin_products_home");
-	Route::get("/products/add/","Admin\ProductController@add")->name("admin_products_add");
-	Route::POST("/products/make/","Admin\ProductController@make")->name("admin_products_make");
-	Route::get("/products/edit/{id}","Admin\ProductController@edit")->name("admin_products_edit");
-	Route::get("/products/delete/{id}","Admin\ProductController@delete")->name("admin_products_delete");
+	Route::group(["prefix" => "products"],function(){
+		Route::get("/","Admin\ProductController@index")->name("admin_products_home");
+		Route::get("/add/","Admin\ProductController@add")->name("admin_products_add");
+		Route::POST("/make/","Admin\ProductController@make")->name("admin_products_make");
+		Route::get("/edit/{id}","Admin\ProductController@edit")->name("admin_products_edit");
+		Route::get("/delete/{id}","Admin\ProductController@delete")->name("admin_products_delete");
+	});
+	Route::group(["prefix" => "categories"],function(){
+		Route::get("/","Admin\CategoriesController@index")->name("admin_categories_home");
+		Route::get("/add/","Admin\CategoriesController@add")->name("admin_categories_add");
+		Route::POST("/make/","Admin\CategoriesController@make")->name("admin_categories_make");
+		Route::get("/edit/{id}","Admin\CategoriesController@edit")->name("admin_categories_edit");
+		Route::POST("/update/{id}","Admin\CategoriesController@update")->name("admin_categories_update");
+		Route::get("/delete/{id}","Admin\CategoriesController@delete")->name("admin_categories_delete");
+	});
+
 });
 Route::get("/product/{productname}","ProductController@searchProduct")->name("product_single");
 Auth::routes();

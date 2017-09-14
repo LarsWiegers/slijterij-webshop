@@ -24,7 +24,7 @@ class CreateProductsTable extends Migration
             $table->integer("quantity");  // this means mililiter
         });
         Schema::table("products",function(Blueprint $table){
-        	$table->foreign('category_id')->references("id")->on("categories");
+        	$table->foreign('category_id')->references("id")->on("category");
         });
     }
 

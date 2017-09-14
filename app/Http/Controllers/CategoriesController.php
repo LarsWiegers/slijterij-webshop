@@ -18,7 +18,7 @@ class CategoriesController extends Controller
 		foreach($products as $product) {
 			$product->productImage = $product->getProductImages();
 		}
-		return view("categories.index",[
+		return view("category.index",[
 			"products" => $products,
 			"allCategories" => Category::all(),
 			"lowestPrice" => $this->getLowestPrice(Product::all()),
@@ -60,7 +60,7 @@ class CategoriesController extends Controller
 
 			$products->push($product);
 		}
-		return view("categories.index",[
+		return view("category.index",[
 			"products" => $products,
 			"allCategories" => Category::all(),
 			"lowestPrice" => $this->getLowestPrice(Product::all()),

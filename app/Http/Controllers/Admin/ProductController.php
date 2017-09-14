@@ -38,11 +38,11 @@ class ProductController extends Controller
 		$product->code = Input::get("code");
 		$product->save();
 
-		return redirect()->route("admin_products_edit",["id" => $product->id]);
+		return redirect()->route("admin_products_home");
 	}
 	public function edit($id) {
 		$product = Product::findOrFail($id);
-		return view("admin.product.edit",["product" => $product ,"categories" => Category::all()]);
+		return view("admin.product.edit",["product" => $product ,"category" => Category::all()]);
 	}
 	public function delete($productId) {
 		$product = Product::findOrFail($productId);
