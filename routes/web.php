@@ -30,6 +30,7 @@ Route::group(["prefix" => "admin","middleware" => ["auth","admin"]],function(){
 	Route::get("/products/add/","Admin\ProductController@add")->name("admin_products_add");
 	Route::POST("/products/make/","Admin\ProductController@make")->name("admin_products_make");
 	Route::get("/products/edit/{id}","Admin\ProductController@edit")->name("admin_products_edit");
+	Route::get("/products/delete/{id}","Admin\ProductController@delete")->name("admin_products_delete");
 });
 Route::get("/product/{productname}","ProductController@searchProduct")->name("product_single");
 Auth::routes();

@@ -12,7 +12,12 @@ class ProductController extends Controller
 {
     //
 	public function index() {
-		return view("admin.product.index",["products" => Product::all()]);
+		$products = Product::all();
+		foreach($products as $product) {
+			$product->category = Category::find($product->category_id);
+		}
+		return view("admin.product.index",["products" => $products]);
+
 	}
 	public function add() {
 		return view("admin.product.add",["categories" => Category::all()]);
@@ -38,5 +43,10 @@ class ProductController extends Controller
 	public function edit($id) {
 		$product = Product::findOrFail($id);
 		return view("admin.product.edit",["product" => $product ,"categories" => Category::all()]);
+	}
+	public function delete($productId) {
+		$product = Product::findOrFail($productId);
+		$product->delete();
+		return back();
 	}
 }
