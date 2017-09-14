@@ -28,18 +28,13 @@ class AgeRestriction
     	// if the session is not set or we are not on the page that can set it we redirect to that page
 	    if( is_null(session("age_verification") )
 	    ){
-			if($this->isOnTheAgeRestrictionPage($request)) {
+			if($this->isOnTheAgeRestrictionPage($request) ||
+			   $this->isOnTheAgeRestrictionResultPageTrue($request) ||
+			   $this->isOnTheAgeRestrictionResultPageFalse($request) ||
+			   $this->isOnAgeRestrictionFalseResult($request)
+			){
 				return $next($request);
 			}
-		    if($this->isOnTheAgeRestrictionResultPageTrue($request)) {
-			    return $next($request);
-		    }
-		    if($this->isOnTheAgeRestrictionResultPageFalse($request)) {
-			    return $next($request);
-		    }
-		    if($this->isOnAgeRestrictionFalseResult($request)) {
-			    return $next($request);
-		    }
 	    	return redirect()->route("age_verification");
 	    }
 	    return $next($request);
