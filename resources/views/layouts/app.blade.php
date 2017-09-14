@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <link rel="shortcut icon" href="{{asset("/favicon.png")}}">
     <!-- Styles -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     @stack("head")
@@ -103,9 +103,18 @@
                     <div class="navbar-dropdown">
                         <a href="{{route("profile")}}" class="navbar-item">Profile</a>
                         @isAdmin
-                        <hr class="navbar-divider">
+                        <hr class="navbar-devider">
                            <a href="{{route("admin_home")}}" class="navbar-item">Dashboard</a>
                         @endisAdmin
+                        <a href="{{ route('logout') }}" class="navbar-item"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
                     </div>
                 </div>
             @endauth

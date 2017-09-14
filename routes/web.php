@@ -14,7 +14,7 @@ Route::POST("/add_to_cart/{productId}/{returnUrl?}","CartController@addToCart")-
 Route::get("/remove_all_checkout_items/{returnUrl?}","CartController@removeAll")->name("remove_all_checkout_items");
 Route::POST("/remove_one_item/{productId}/{returnUrl?}","CartController@removeOne")->name("remove_an_item");
 
-Route::get("/order_checkout","OrderCheckout@index")->name("order_checkout");
+Route::get("/order_checkout","OrderCheckoutController@index")->name("order_checkout");
 
 Route::group( [ 'prefix' => 'categories' ], function () {
 	Route::get("/","CategoriesController@index")->name("categories_home");
@@ -32,3 +32,6 @@ Route::group(["prefix" => "admin","middleware" => ["auth","admin"]],function(){
 	Route::get("/products/edit/{id}","Admin\ProductController@edit")->name("admin_products_edit");
 });
 Route::get("/product/{productname}","ProductController@searchProduct")->name("product_single");
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

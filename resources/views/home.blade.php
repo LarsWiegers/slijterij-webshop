@@ -40,7 +40,6 @@
         <div class="featured-products">
             <div class="grid-container">
                 @foreach($featuredProducts as $product)
-                    @component("components.featuredProduct")
                     @slot("image")
                         {{$product->productImage[0]->location}}
                     @endslot
@@ -53,7 +52,6 @@
                     @slot("price")
                         {{$product->price}}
                     @endslot
-                    @endcomponent
                 @endforeach
             </div>
         </div>
