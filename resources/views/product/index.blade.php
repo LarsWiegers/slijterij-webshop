@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="column info-container">
-                {!! Form::open(["url" => route("add_to_cart",["productId" => $product->id,"returnUrl" => Request::path()])]) !!}
+                {!! Form::open(["url" => route("add_to_cart",["productId" => $product->id])]) !!}
                 <h1 class="name">{{$product->name}}</h1>
                 <p class="price">{{env("CURRENCY_ICON")}} {{$product->price}}</p>
                 <button type="submit" class="button is-primary">Voeg toe aan winkelwagen</button>

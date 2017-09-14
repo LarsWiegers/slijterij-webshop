@@ -8,24 +8,23 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller {
 	//
-	public function addToCart( Request $request, $productId, $returnUrl = null ) {
+	public function addToCart( Request $request, $productId ) {
 		session()->push('cartItems',( new Product() )->find( $productId ) );
-		return $this->returnRedirectBack( $returnUrl );
+		return back();
 
 	}
 
-	public function removeOne( $productId, $returnUrl = null ) {
+	public function removeOne( $productId) {
 
 		session( [ "cartItems" => $this->removeOneItemFromCart( session( "cartItems" ), $productId ) ] );
 
-		return $this->returnRedirectBack( $returnUrl );
+		return back();
 	}
 
-	public function removeAll( Request $request, $returnUrl = null ) {
+	public function removeAll( Request $request ) {
 		$request->session()->forget( "cartItems" );
 
-		return $this->returnRedirectBack( $returnUrl );
-
+		return back();
 	}
 
 	/*
@@ -47,11 +46,5 @@ class CartController extends Controller {
 		}
 		return $newCartItems;
 	}
-		private function returnRedirectBack( $returnUrl ) {
-			if ( $returnUrl === null ) {
-				return redirect()->route( "home" );
-			}
 
-			return redirect( $returnUrl );
-		}
-	}
+}

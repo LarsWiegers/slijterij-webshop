@@ -48,7 +48,8 @@
                     @else
 
                         @foreach($shoppingCartItems as $item)
-                            {!! Form::open(['url' => route("remove_an_item",["productId" => $item->id,"returnUrl" => Request::path()])]) !!}
+
+                            {!! Form::open(['url' => route("remove_an_item",["productId" => $item->id])]) !!}
                             <a class="navbar-item" href="/documentation/overview/start/">
                                 <div class="img-container">
                                     @if(count( $item->productImages ) > 0)
@@ -81,11 +82,10 @@
                             <a class="button is-primary" href="{{route("order_checkout")}}">Bestellen</a>
                         </div>
                         <div class="column has-text-right">
-                            <a class="button is-primary" href="{{route("remove_all_checkout_items",["returnUrl" => Request::path()])}}">Leegmaken</a>
+                            <a class="button is-primary" href="{{route("remove_all_checkout_items")}}">Leegmaken</a>
                         </div>
                     </div>
                 </div>
-
             </div>
             @guest
                 <a href="{{route("login")}}" class="navbar-item">
