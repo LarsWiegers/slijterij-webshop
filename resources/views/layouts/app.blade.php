@@ -47,7 +47,7 @@
             <div class="navbar-item has-dropdown is-hoverable shopping-cart-container">
                 <div class="navbar-link">
                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                    <span class="count">{{$CountShoppinCartItems}}</span>
+                    <span class="count">{{$CountShoppingCartItems}}</span>
                 </div>
                 <div class="navbar-dropdown">
 

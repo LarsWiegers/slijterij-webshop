@@ -28,7 +28,7 @@ class ShoppingCart
 	    	$totalPriceCartItems += $item->price;
     }
     	View::share("shoppingCartItems",$cartItems);
-    	View::share("CountShoppinCartItems",$CountShoppinCartItems);
+    	View::share("CountShoppingCartItems",$CountShoppinCartItems);
     	View::share("totalPriceCartItems",$totalPriceCartItems);
         return $next($request);
     }
