@@ -5770,4 +5770,19 @@ label.panel-block {
     .home .slider-container .front h1, .home .slider-container .front h2 {
       color: white; }
 
+.sign_up_bar {
+  background-color: #008571;
+  padding: 10vh 20vh; }
+  .sign_up_bar h1, .sign_up_bar h3, .sign_up_bar span {
+    color: white; }
+  .sign_up_bar .column {
+    text-align: center; }
+  .sign_up_bar span.for-layout {
+    display: block;
+    margin-bottom: 0.2em; }
+  .sign_up_bar input {
+    padding: 1.2em; }
+  .sign_up_bar button {
+    height: 46px; }
+
 /*# sourceMappingURL=app.css.map */

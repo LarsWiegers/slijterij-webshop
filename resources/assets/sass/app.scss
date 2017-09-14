@@ -239,3 +239,23 @@ $navbar-height: 52px;
   }
 
 }
+.sign_up_bar {
+  background-color: darken($primary,15);
+  padding:10vh 20vh;
+  h1,h3,span {
+    color:white ;
+  }
+  .column {
+    text-align: center;
+  }
+  span.for-layout {
+    display:block;
+    margin-bottom:0.2em;
+  }
+  input{
+    padding:1.2em;
+  }
+  button {
+    height: 46px;
+  }
+}
