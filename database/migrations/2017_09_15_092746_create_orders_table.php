@@ -15,23 +15,21 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamp('datum');
+            $table->integer("user_id")->unsigned();
+            $table->timestamp('date_of_order');
             $table->boolean('status');
             $table->double('price');
-	        $table->string('first_name');
-	        $table->string('last_name');
-	        $table->string('address');
-	        $table->string('postcode');
-	        $table->string('city');
-	        $table->string('country');
 	        $table->string('telephone_number');
 	        $table->string('email');
-            $table->string('order_first_name');
-            $table->string('order_last_name');
-            $table->string('order_address');
-            $table->string('order_postcode');
-            $table->string('order_city');
-            $table->string('order_country');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('address');
+            $table->string('postcode');
+            $table->string('city');
+            $table->string('country');
+        });
+        Schema::table("orders",function(Blueprint $table) {
+        	$table->foreign("user_id")->references("id")->on("users");
         });
     }
 
