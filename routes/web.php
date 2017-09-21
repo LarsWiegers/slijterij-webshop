@@ -68,6 +68,9 @@ Route::group(["prefix" => "admin","middleware" => ["auth","admin"]],function(){
 		Route::POST("/update/{id}","Admin\CategoriesController@update")->name("admin_categories_update");
 		Route::get("/delete/{id}","Admin\CategoriesController@delete")->name("admin_categories_delete");
 	});
+	Route::group(["prefix" => "users"],function(){
+		Route::get("/","Admin\UsersController@index")->name("admin_users_home");
+	});
 
 });
 
