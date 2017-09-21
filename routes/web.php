@@ -61,15 +61,15 @@ Route::group(["prefix" => "admin","middleware" => ["auth","admin"]],function(){
 		Route::get("/delete/{id}","Admin\ProductController@delete")->name("admin_products_delete");
 	});
 	Route::group(["prefix" => "categories"],function(){
-		Route::get("/","Admin\CategoriesController@index")->name("admin_categories_home");
-		Route::get("/add/","Admin\CategoriesController@add")->name("admin_categories_add");
-		Route::POST("/make/","Admin\CategoriesController@make")->name("admin_categories_make");
-		Route::get("/edit/{id}","Admin\CategoriesController@edit")->name("admin_categories_edit");
-		Route::POST("/update/{id}","Admin\CategoriesController@update")->name("admin_categories_update");
-		Route::get("/delete/{id}","Admin\CategoriesController@delete")->name("admin_categories_delete");
+		Route::get("/","Admin\CategoryController@index")->name("admin_categories_home");
+		Route::get("/add/","Admin\CategoryController@add")->name("admin_categories_add");
+		Route::POST("/make/","Admin\CategoryController@make")->name("admin_categories_make");
+		Route::get("/edit/{id}","Admin\CategoryController@edit")->name("admin_categories_edit");
+		Route::POST("/update/{id}","Admin\CategoryController@update")->name("admin_categories_update");
+		Route::get("/delete/{id}","Admin\CategoryController@delete")->name("admin_categories_delete");
 	});
 	Route::group(["prefix" => "users"],function(){
-		Route::get("/","Admin\UsersController@index")->name("admin_users_home");
+		Route::get("/","Admin\UserController@index")->name("admin_users_home");
 	});
 
 });
