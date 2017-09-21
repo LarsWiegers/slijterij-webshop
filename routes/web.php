@@ -31,6 +31,8 @@ Route::POST("/remove_one_item/{productId}","CartController@removeOne")->name("re
  */
 Route::group(["prefix" => "order_checkout"],function(){
 	Route::get("/","OrderCheckoutController@index")->name("order_checkout");
+	Route::get("/step_2","OrderCheckoutController@billing")->name("order_checkout_step_2");
+	Route::get("/step_3","OrderCheckoutController@final")->name("order_checkout_step_3");
 });
 
 /*

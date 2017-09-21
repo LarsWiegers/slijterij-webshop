@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Category;
 use App\Product;
 use Closure;
 use Illuminate\Database\Eloquent\Collection;
@@ -21,6 +22,10 @@ class ShoppingCart
     	$cartItems = session("cartItems");
     	if(!isset( $cartItems ) ) {
 			$cartItems = new Collection();
+	    }
+	    foreach($cartItems as $product) {
+		    $product->category = Category::find($product->category_id);
+		    $product->productImage = $product->getProductImages();
 	    }
 	    $CountShoppinCartItems = count( $cartItems );
 	    $totalPriceCartItems = 0;
