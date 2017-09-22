@@ -41,7 +41,29 @@
                 </div>
                 <div class="columns is-vcentered">
                     <div class="column is-two-thirds">
+                        {!! Form::open(["url" => route("order_checkout_step_2")]) !!}
+                            <label for="first_name">
+                                Voornaam :
+                            </label>
+                            <input name="first_name" value="{{Auth::user()->first_name}}" name="first_name" id="first_name">
 
+                            <label for="last_name">
+                                Achternaam :
+                            </label>
+                            <input name="last_name" value="{{Auth::user()->last_name}}" name="last_name" id="last_name">
+                            <label for="address">
+                                Bezorg address :
+                            </label>
+                            <input name="address" value="{{Auth::user()->address}}" name="address" id="address">
+                        <label for="postcode">
+                            postcode :
+                        </label>
+                        <input name="postcode" value="{{Auth::user()->postcode}}" name="postcode" id="postcode">
+                        <label for="city">
+                            Stad :
+                        </label>
+                        <input name="city" value="{{Auth::user()->city}}" name="city" id="city">
+                        {!! Form::close() !!}
                     </div>
                     <div class="column is-one-third">
 

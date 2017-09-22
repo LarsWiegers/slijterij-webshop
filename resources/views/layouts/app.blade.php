@@ -113,8 +113,9 @@
                     <div class="navbar-dropdown">
                         <a href="{{route("profile")}}" class="navbar-item">Profile</a>
                         @isAdmin
+
+                        <a href="{{route("admin_home")}}" class="navbar-item">Dashboard</a>
                         <hr class="navbar-devider">
-                           <a href="{{route("admin_home")}}" class="navbar-item">Dashboard</a>
                         @endisAdmin
                         <a href="{{ route('logout') }}" class="navbar-item"
                            onclick="event.preventDefault();
