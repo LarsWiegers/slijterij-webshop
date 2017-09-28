@@ -249,6 +249,33 @@ p.error {
       }
     }
   }
+  .product-list {
+    .flex-container {
+      .product {
+        a {
+          display:grid;
+          grid-template-columns: 20% 1fr 20%;
+        }
+        .name {
+          display:flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .price {
+          display:flex;
+          justify-content: center;
+          align-items: center;
+          span {
+            background-color: $primary;
+            padding:20px;
+            justify-self: flex-end;
+            color:white;
+          }
+        }
+        padding:5vh 5vw;
+      }
+    }
+  }
   .sidebar {
     flex-basis:30%;
     flex-grow: 0;

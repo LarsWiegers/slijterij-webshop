@@ -5778,6 +5778,24 @@ p.error {
         .content .featured-products .grid-container .product:nth-child(10) {
           grid-column: 4 / 4;
           grid-row: 4 / 4; }
+  .content .product-list .flex-container .product {
+    padding: 5vh 5vw; }
+    .content .product-list .flex-container .product a {
+      display: grid;
+      grid-template-columns: 20% 1fr 20%; }
+    .content .product-list .flex-container .product .name {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+    .content .product-list .flex-container .product .price {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .content .product-list .flex-container .product .price span {
+        background-color: #0667D0;
+        padding: 20px;
+        justify-self: flex-end;
+        color: white; }
   .content .sidebar {
     flex-basis: 30%;
     flex-grow: 0; }

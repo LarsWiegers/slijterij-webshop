@@ -65,10 +65,10 @@
                     <h2>Sorry , we konden geen producten vinden met de filters die u aan heeft staan.</h2>
                 </div>
             @else
-                <div class="featured-products">
-                    <div class="grid-container">
+                <div class="product-list">
+                    <div class="flex-container">
                         @foreach($products as $product)
-                            @component("components.featuredProduct")
+                            @component("components.productListItem")
                                 @slot("image")
                                     {{$product->productImage[0]->location}}
                                 @endslot
