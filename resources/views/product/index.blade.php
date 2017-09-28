@@ -17,7 +17,9 @@
                 {!! Form::open(["url" => route("add_to_cart",["productId" => $product->id])]) !!}
                 <h1 class="name">{{$product->name}}</h1>
                 <p class="price">{{env("CURRENCY_ICON")}} {{$product->price}}</p>
-                <button type="submit" class="button is-primary">Voeg toe aan winkelwagen</button>
+                <button type="submit" class="button is-primary">
+                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                    Voeg toe aan winkelwagen</button>
                 {!! Form::close() !!}
             </div>
         </div>
