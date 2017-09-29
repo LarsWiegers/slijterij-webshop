@@ -18,11 +18,13 @@ $text-color : #e4e4e4;
 p.error {
   color: black;
 }
+.button {
+  padding: 10px 25px;
+  height:unset;
+}
 .button.is-primary {
   background-color: $primary;
   color:$white;
-  padding: 10px 25px;
-  height:unset;
   -webkit-transition: background-color ease 0.25s;
   transition: background-color ease 0.25s;
   &:hover {

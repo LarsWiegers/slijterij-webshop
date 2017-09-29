@@ -5596,11 +5596,13 @@ label.panel-block {
 p.error {
   color: black; }
 
+.button {
+  padding: 10px 25px;
+  height: unset; }
+
 .button.is-primary {
   background-color: #0667D0;
   color: white;
-  padding: 10px 25px;
-  height: unset;
   -webkit-transition: background-color ease 0.25s;
   transition: background-color ease 0.25s; }
   .button.is-primary:hover {
