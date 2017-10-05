@@ -42,7 +42,7 @@ class ProductController extends Controller
 	}
 	public function edit($id) {
 		$product = Product::findOrFail($id);
-		return view("admin.product.edit",["product" => $product ,"category" => Category::all()]);
+		return view("admin.product.edit",["product" => $product ,"categories" => Category::all()]);
 	}
 	public function delete($productId) {
 		$product = Product::findOrFail($productId);

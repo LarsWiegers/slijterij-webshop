@@ -5,6 +5,10 @@
             <span>
                 {{$name}}
             </span>
+
+        </p>
+        <p class="alcohol">
+            <span>{{$alcoholPercentage}} %</span>
         </p>
         <p class="price"><span>{{env("CURRENCY_ICON")}} {{$price}}</span></p>
     </a>

@@ -19,6 +19,9 @@ class ProductsTableSeeder extends Seeder
     	$faker = Faker::create();
     	$minPrice = 5.00;
     	$maxPrice = 500.00;
+
+    	$minAlcohol = 5;
+    	$maxAlcohol = 75;
 	    foreach (range(1,10) as $index) {
 		    DB::table( "products" )->insert([
 			    "category_id" => floor( rand( 1, $this->totalCategories ) ),
@@ -27,6 +30,7 @@ class ProductsTableSeeder extends Seeder
 			    "description" => $faker->realText(),
 			    "code" => $faker->bankAccountNumber,
 			    "price" => rand ($minPrice  , $maxPrice ),
+			    "alcoholPercentage" => rand ($minAlcohol  , $maxAlcohol ),
 			    "quantity" => rand (500  , 10000 )
 		    ]);
 	    }

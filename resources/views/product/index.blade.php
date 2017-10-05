@@ -41,6 +41,14 @@
                     <p>{{ ( new \App\Category() )->find($product->category_id)->name }}</p>
                 </div>
             </div>
+            <div class="columns">
+                <div class="column">
+                    <div class="column">
+                        <h4>Alcohol Percentage</h4>
+                        <p>{{$product->category_id }}%</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

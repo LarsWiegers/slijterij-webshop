@@ -72,7 +72,14 @@
                             @else
                                 <input type="checkbox" name="online" id="online">
                                 @endif
-
+                        </div>
+                        <div class="column">
+                            <span class="for-layout">
+                                 <label for="code">
+                                    Alcohol percentage :
+                                </label>
+                            </span>
+                            <input name="code" id="code" value="{{$product->alcoholPercentage}}">%
                         </div>
                         <div class="column">
                             <button type="submit" class="button">Voeg toe</button>

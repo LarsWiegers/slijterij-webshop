@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->mediumText("description");
             $table->string("code");
             $table->double("price");
+            $table->double("alcoholPercentage");
             $table->integer("quantity");  // this means mililiter
         });
         Schema::table("products",function(Blueprint $table){

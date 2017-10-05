@@ -81,6 +81,9 @@
                                 @slot("price")
                                     {{$product->price}}
                                 @endslot
+                                @slot("alcoholPercentage")
+                                    {{$product->alcoholPercentage}}
+                                @endslot
                             @endcomponent
                         @endforeach
                     </div>

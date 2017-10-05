@@ -258,7 +258,7 @@ p.error {
       .product {
         a {
           display:grid;
-          grid-template-columns: 20% 1fr 20%;
+          grid-template-columns: 20% 1fr 1fr 20%;
         }
         .name {
           display:flex;
@@ -275,6 +275,11 @@ p.error {
             justify-self: flex-end;
             color:white;
           }
+        }
+        .alcohol {
+          display:flex;
+          justify-content: center;
+          align-items: center;
         }
         padding:5vh 5vw;
       }
@@ -321,6 +326,9 @@ p.error {
       color: darken($text-color, 50);
       margin-bottom: 0;
       padding: 0 15px;
+    }
+    .alcohol {
+      color: darken($text-color, 50);
     }
     .price {
       color: darken($text-color, 70);

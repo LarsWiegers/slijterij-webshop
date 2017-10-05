@@ -9,6 +9,7 @@
             <td>zichtbaar voor klanten :</td>
             <td>code :</td>
             <td>prijs :</td>
+            <td>alcohol percentage :</td>
             <td>Hoeveelheid (ml) :</td>
             <td> edit / delete </td>
         </tr>
@@ -34,6 +35,9 @@
                 </td>
                 <td>
                     {{$product->price}}
+                </td>
+                <td>
+                    {{$product->alcoholPercentage}}%
                 </td>
                 <td>
                     {{$product->quantity}}
