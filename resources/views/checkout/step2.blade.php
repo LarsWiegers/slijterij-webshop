@@ -39,36 +39,76 @@
                     </div>
 
                 </div>
-                <div class="columns is-vcentered">
-                    <div class="column is-two-thirds">
-                        {!! Form::open(["url" => route("order_checkout_step_2")]) !!}
-                            <label for="first_name">
-                                Voornaam :
-                            </label>
-                            <input name="first_name" value="{{Auth::user()->first_name}}" name="first_name" id="first_name">
+                <div class="columns">
+                        <div class="column is-two-thirds">
+                            <div class="container-fluid checkout-table-container">
+                                <table class="checkout-table">
+                                    <thead>
+                                    <tr>
+                                        <td>Product :</td>
+                                        <td>Naam :</td>
+                                        <td>categorie :</td>
+                                        <td>prijs :</td>
+                                        <td>Hoeveelheid (ml) :</td>
+                                        <td>Delete / Remove :</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($shoppingCartItems as $product)
+                                        <tr>
+                                            <td>
+                                                <img src="{{$product->productImage[0]->location}}"
+                                                     alt="{{$product->productImage[0]->alt}}">
+                                            </td>
 
-                            <label for="last_name">
-                                Achternaam :
-                            </label>
-                            <input name="last_name" value="{{Auth::user()->last_name}}" name="last_name" id="last_name">
-                            <label for="address">
-                                Bezorg address :
-                            </label>
-                            <input name="address" value="{{Auth::user()->address}}" name="address" id="address">
-                        <label for="postcode">
-                            postcode :
-                        </label>
-                        <input name="postcode" value="{{Auth::user()->postcode}}" name="postcode" id="postcode">
-                        <label for="city">
-                            Stad :
-                        </label>
-                        <input name="city" value="{{Auth::user()->city}}" name="city" id="city">
-                        {!! Form::close() !!}
+                                            <td>
+                                                <a href="{{route("product_single",["productname" => $product->name])}}">{{$product->name}}</a>
+                                            </td>
+                                            <td>
+                                                {{$product->category->name}}
+                                            </td>
+                                            <td>
+                                                {{env("CURRENCY_ICON")}} {{$product->price}}
+                                            </td>
+                                            <td>
+                                                {{$product->quantity}}
+                                            </td>
+                                            <td>
+                                                {!! Form::open(['url' => route("remove_an_item",["productId" => $product->id])]) !!}
+                                                <div class="button-container">
+                                                    <button type="submit" value="Submit"><i class="fa fa-times"
+                                                                                            aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                                {!! Form::close() !!}
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    <tr class="last">
+                                        <td>
+                                            Totaal prijs :
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>{{env("CURRENCY_ICON")}} {{$totalPriceCartItems}}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="container-fluid text-container">
+                                <div class="text has-text-centered is-centered">
+                                    <h5>Zijn dit alle producten die u wil bestellen ?</h5>
+                                    <p>Dan kunt u door naar stap 3</p>
+                                    <a href="{{route("order_checkout_step_3")}}" class="button is-primary">Stap 3</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="column is-one-third">
-
-                    </div>
-                </div>
             @endif
         @endauth
     </div>

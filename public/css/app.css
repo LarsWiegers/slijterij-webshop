@@ -5646,6 +5646,24 @@ p.error {
 .navbar-link::after {
   border-color: #0667D0; }
 
+.button-container {
+  flex: 0 0 30%;
+  margin-right: 5rem;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-right: 1em; }
+  .button-container button {
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer; }
+    .button-container button:active, .button-container button::-moz-focus-inner {
+      border: none;
+      background: none;
+      outline: none; }
+
 .shopping-cart-container .count {
   position: relative;
   top: 6px;
@@ -5683,23 +5701,6 @@ p.error {
         min-height: 25px; }
     .shopping-cart-container .navbar-dropdown .navbar-item .text {
       flex: 0 0 50%; }
-    .shopping-cart-container .navbar-dropdown .navbar-item .button-container {
-      flex: 0 0 30%;
-      margin-right: 5rem;
-      text-align: right;
-      display: flex;
-      justify-content: flex-end;
-      align-items: flex-end;
-      padding-right: 1em; }
-      .shopping-cart-container .navbar-dropdown .navbar-item .button-container button {
-        border: none;
-        background: none;
-        outline: none;
-        cursor: pointer; }
-        .shopping-cart-container .navbar-dropdown .navbar-item .button-container button:active, .shopping-cart-container .navbar-dropdown .navbar-item .button-container button::-moz-focus-inner {
-          border: none;
-          background: none;
-          outline: none; }
   .shopping-cart-container .navbar-dropdown .buttons {
     margin-left: 0;
     margin-right: 0; }
@@ -5867,9 +5868,9 @@ p.error {
     display: flex;
     justify-content: center;
     align-items: center; }
-  .content .checkout .text {
+  .content .checkout .text-container {
+    margin: 10vh 5vw;
     padding: 20px;
-    margin: 5vh 2vw;
     background-color: white; }
   .content .checkout .checkout-table-container {
     margin: 10vh 5vw;
@@ -5883,6 +5884,10 @@ p.error {
     background-color: inherit; }
   .content .checkout .checkout-table img {
     max-width: 100px; }
+  .content .checkout .delivery-address-container {
+    background-color: white;
+    margin: 10vh 5vw;
+    padding: 20px; }
   .content .checkout .steps {
     padding: 10vh 78vh; }
     .content .checkout .steps .column {

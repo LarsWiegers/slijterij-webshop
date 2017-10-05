@@ -78,6 +78,26 @@ p.error {
 .navbar-link::after {
   border-color: $primary;
 }
+.button-container  {
+  flex: 0 0 30%;
+  margin-right: 5rem;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-right: 1em;
+  button {
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    &:active, &::-moz-focus-inner {
+      border: none;
+      background: none;
+      outline: none;
+    }
+  }
+}
 .shopping-cart-container {
   .count {
     position: relative;
@@ -101,6 +121,7 @@ p.error {
       box-shadow:1px 1px 2px rgba(0,0,0,0.2);
     }
   }
+
   .navbar-dropdown {
     left: unset;
     right: 0;
@@ -121,26 +142,7 @@ p.error {
       .text {
         flex: 0 0 50%;
       }
-      .button-container {
-        flex: 0 0 30%;
-        margin-right: 5rem;
-        text-align: right;
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
-        padding-right: 1em;
-        button {
-          border: none;
-          background: none;
-          outline: none;
-          cursor: pointer;
-          &:active, &::-moz-focus-inner {
-            border: none;
-            background: none;
-            outline: none;
-          }
-        }
-      }
+
     }
     .buttons {
       margin-left: 0;
@@ -379,9 +381,9 @@ p.error {
     align-items: center;
   }
   .checkout {
-    .text {
+    .text-container {
+      margin:10vh 5vw;
       padding:20px;
-      margin:5vh 2vw;
       background-color:lighten($text-color,20);
     }
     .checkout-table-container {
@@ -406,6 +408,11 @@ p.error {
       img {
         max-width: 100px;
       }
+    }
+    .delivery-address-container {
+      background-color: $white;
+      margin:10vh 5vw;
+      padding:20px;
     }
     .steps {
       padding: 10vh 78vh;

@@ -39,63 +39,65 @@
                     </div>
 
                 </div>
-                <div class="columns is-vcentered">
-                    <div class="column is-two-thirds">
-                        <div class="container-fluid checkout-table-container">
-                            <table class="checkout-table">
-                                <thead>
-                                <tr>
-                                    <td>Product :</td>
-                                    <td>Naam :</td>
-                                    <td>categorie :</td>
-                                    <td>prijs :</td>
-                                    <td>Hoeveelheid (ml) :</td>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($shoppingCartItems as $product)
-                                    <tr>
-                                        <td>
-                                            <img src="{{$product->productImage[0]->location}}"
-                                                 alt="{{$product->productImage[0]->alt}}">
-                                        </td>
-
-                                        <td>
-                                            <a href="{{route("product_single",["productname" => $product->name])}}">{{$product->name}}</a>
-                                        </td>
-                                        <td>
-                                            {{$product->category->name}}
-                                        </td>
-                                        <td>
-                                            {{env("CURRENCY_ICON")}} {{$product->price}}
-                                        </td>
-                                        <td>
-                                            {{$product->quantity}}
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                <tr class="last">
-                                    <td>
-                                        Totaal prijs :
-                                    </td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>{{env("CURRENCY_ICON")}} {{$totalPriceCartItems}}</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                </tbody>
-                            </table>
+                <div class="columns">
+                        <div class="column is-two-thirds">
+                            <div class="container-fluid delivery-address-container">
+                                {!! Form::open(["url" => route("order_checkout_step_2")]) !!}
+                                <div class="columns">
+                                    <div class="column">
+                                        <label class="label" for="first_name">
+                                            Voornaam :
+                                        </label>
+                                        <input name="first_name" value="{{Auth::user()->first_name}}" name="first_name" id="first_name">
+                                    </div>
+                                    <div class="column">
+                                        <label class="label" for="last_name">
+                                            Achternaam :
+                                        </label>
+                                        <input name="last_name" value="{{Auth::user()->last_name}}" name="last_name" id="last_name">
+                                    </div>
+                                </div>
+                                <div class="columns">
+                                    <div class="column">
+                                        <label class="label" for="address">
+                                            Bezorg address :
+                                        </label>
+                                        <input name="address" value="{{Auth::user()->address}}" name="address" id="address">
+                                    </div>
+                                    <div class="column">
+                                        <label class="label" for="postcode">
+                                            postcode :
+                                        </label>
+                                        <input name="postcode" value="{{Auth::user()->postcode}}" name="postcode" id="postcode">
+                                    </div>
+                                </div>
+                                <div class="columns">
+                                    <div class="column">
+                                        <label class="label" for="city">
+                                            Stad :
+                                        </label>
+                                        <input  value="{{Auth::user()->city}}" name="city" id="city">
+                                    </div>
+                                    <div class="column">
+                                        <label class="label" for="country">
+                                            Land :
+                                        </label>
+                                        <input value="{{Auth::user()->country}}" name="country" id="country">
+                                    </div>
+                                </div>
+                                {!! Form::close() !!}
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="container-fluid text-container">
+                                <div class="text has-text-centered is-centered">
+                                    <h5>Kloppen deze gegevens ? dan kunt u verder naar stap 2</h5>
+                                    <p>Dan kunt u door naar stap 2</p>
+                                    <a href="{{route("order_checkout_step_2")}}" class="button is-primary">Stap 2</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="column is-one-third">
-                        <div class="text has-text-centered is-centered">
-                            <h5>Zijn dit alle producten die u wil bestellen ?</h5>
-                            <p>Dan kunt u door naar stap 2</p>
-                            <a href="{{route("order_checkout_step_2")}}" class="button is-primary">Stap 2</a>
-                        </div>
-                    </div>
-                </div>
             @endif
         @endauth
     </div>
