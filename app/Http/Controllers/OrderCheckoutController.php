@@ -22,30 +22,37 @@ class OrderCheckoutController extends Controller
 		foreach(session("cartItems") as $item) {
 			$totalPriceCartItems += $item->price;
 		}
-		dd(Auth::user());
 		$now = Carbon::now();
-		DB::table('orders')->insert([
-			"user_id" => Auth::id(),
-			"date_of_order" => $now,
-			"status" => false,
-			"price" => $totalPriceCartItems,
-			"telephone_number" => Auth::user()->telephone_number,
-			"email" => Auth::user()->email,
-			"first_name" => Auth::user()->first_name,
-			"last_name" => Auth::user()->last_name,
-			"address" => Auth::user()->address,
-			"postcode" => Auth::user()->postcode,
-			"city" => Auth::user()->city,
-			"country" => Auth::user()->country,
-		]);
-		$order = DB::table("orders")->where("date_of_order","=",$now)->get()->first();
-		foreach(session("cartItems") as $cartItem) {
-			DB::table("orders_rows")->insert([
-				"product_id" => $cartItem->id,
-				"order_id" => $order->id,
-				"name" => $cartItem->name,
-				"price" => $cartItem->price,
+		$stillOpenOrder = DB::table("orders")->where("user_id","=",Auth::id())
+		                   ->where("status","=",false)->get();
+		if(count($stillOpenOrder) > 0) {
+			// there are still order open for this user
+
+		}else {
+			DB::table('orders')->insert([
+				"user_id" => Auth::id(),
+				"date_of_order" => $now,
+				"status" => false,
+				"price" => $totalPriceCartItems,
+				"telephone_number" => Auth::user()->telephone_number,
+				"email" => Auth::user()->email,
+				"first_name" => Auth::user()->first_name,
+				"last_name" => Auth::user()->last_name,
+				"address" => Auth::user()->address,
+				"postcode" => Auth::user()->postcode,
+				"city" => Auth::user()->city,
+				"country" => Auth::user()->country,
 			]);
+			$order = DB::table("orders")->where("date_of_order","=",$now)->get()->first();
+			foreach(session("cartItems") as $cartItem) {
+				DB::table("orders_rows")->insert([
+					"product_id" => $cartItem->id,
+					"order_id" => $order->id,
+					"name" => $cartItem->name,
+					"price" => $cartItem->price,
+				]);
+			}
+
 		}
 		return view("checkout.step2");
 	}

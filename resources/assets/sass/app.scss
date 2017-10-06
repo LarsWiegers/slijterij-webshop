@@ -390,12 +390,12 @@ p.error {
   }
   .checkout {
     .text-container {
-      margin:10vh 5vw;
+      margin: 0 10vh 2vw;
       padding:20px;
       background-color:lighten($text-color,20);
     }
     .checkout-table-container {
-      margin:10vh 5vw;
+      margin: 0 10vh 2vw;
       padding:20px;
       background-color:lighten($text-color,20);
     }
@@ -419,7 +419,7 @@ p.error {
     }
     .delivery-address-container {
       background-color: $white;
-      margin:10vh 5vw;
+      margin: 0 10vh 2vw;
       padding:20px;
     }
     .steps {

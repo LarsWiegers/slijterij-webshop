@@ -57,7 +57,7 @@
                                     @foreach($shoppingCartItems as $product)
                                         <tr>
                                             <td>
-                                                <img src="{{$product->productImage[0]->location}}"
+                                                <img src="/{{$product->productImage[0]->location}}"
                                                      alt="{{$product->productImage[0]->alt}}">
                                             </td>
 

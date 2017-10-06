@@ -5875,11 +5875,11 @@ p.error {
     justify-content: center;
     align-items: center; }
   .content .checkout .text-container {
-    margin: 10vh 5vw;
+    margin: 0 10vh 2vw;
     padding: 20px;
     background-color: white; }
   .content .checkout .checkout-table-container {
-    margin: 10vh 5vw;
+    margin: 0 10vh 2vw;
     padding: 20px;
     background-color: white; }
   .content .checkout .checkout-table td {
@@ -5892,7 +5892,7 @@ p.error {
     max-width: 100px; }
   .content .checkout .delivery-address-container {
     background-color: white;
-    margin: 10vh 5vw;
+    margin: 0 10vh 2vw;
     padding: 20px; }
   .content .checkout .steps {
     padding: 10vh 78vh; }
